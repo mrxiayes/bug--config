@@ -1,0 +1,43 @@
+FlymeOS开源项目 ROM适配工具 流程
+
+通过repo init命令的-b参数, 选择需要下载的分支。 通过repo sync命令同步远程代码:
+
+flyme4.5代码
+$ repo init -u https://github.com/FlymeOS/manifest.git -b lollipop-5.0
+$ repo sync -c -j4
+
+flyme5代码
+$ repo init -u https://github.com/FlymeOS/manifest.git -b lollipop-5.1
+$ repo sync -c -j4
+
+标准流程
+
+下载完代码以后, 在开源项目根目录, 执行以下命令初始化开发环境:
+
+$ source build/envsetup.sh
+创建一个新的机型工程的目录(以demo为例), 后续的移植都在机型目录完成。
+
+$ mkdir -p devices/demo
+$ cd devices/demo
+按照如下步骤，完成一个新机型的适配：
+
+$ flyme config      # 生成机型配置文件Makefile
+$ flyme newproject  # 生成新机型目录
+$ flyme patchall    # 自动插桩
+$ flyme fullota     # 生成适配完成的ROM包
+
+* 冲突处理
+
+自动插桩可能会造成代码合并冲突。冲突会以下面的形式标注出来, 开发者需要在厂商的文件中手工解决这些冲突。
+
+<<<<<<< VENDOR
+  原厂的代码块
+=======
+  Flyme的代码块
+>>>>>>> BOSP
+* 版本升级
+
+可以跟随官方发布的最新ROM包，将已经是适配完成的机型升级到最新版本：
+
+$ flyme cleanall
+$ flyme upgrade
