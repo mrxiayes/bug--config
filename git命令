@@ -22,26 +22,26 @@ git设置文本颜色
 
 git log --pretty=oneline kernel/sys.c
 
-git checkout –b 新分支名                 #切换本地分支
-git checkout 分支名                        #切换服务器上的分支（远程分支可以通过 git branch -r 列出） 
-git checkout commit_id                 #切换到commit id （使用cat .git/HEAD后，显示commit_id） 
-git checkout tag                          #（使用cat .git/HEAD后，显示tag） 
-git mv xx xxx                #重命名一个文件、目录或者链接。
-git branch                   # 列出本地git库中的所有分支。在列出的分支中，若分支名前有*，则表示此分支为当前分支。
-git branch –r               #列出服务器git库的所有分支。 
-git branch 分支名            #创建一个分支 
-git branch –D 分支名        #删除分支
-git diff 分支名 分支名       #比较主分支和另一个分支的区别
-git-show-branch             #查看当前分支的提交注释及信息） 
-git-show-branch -all        #查看所有分支的提交注释及信息）
-git whatchanged             #查看当前分支的操作记录 
-git config --global color.ui true   #高亮
-git remote add origin URL     #push地址
+git checkout –b 新分支名		#切换本地分支
+git checkout 分支名                     #切换服务器上的分支（远程分支可以通过 git branch -r 列出） 
+git checkout commit_id                  #切换到commit id （使用cat .git/HEAD后，显示commit_id） 
+git checkout tag                        #（使用cat .git/HEAD后，显示tag） 
+git mv xx xxx                		#重命名一个文件、目录或者链接。
+git branch              	        # 列出本地git库中的所有分支。在列出的分支中，若分支名前有*，则表示此分支为当前分支。
+git branch –r               		#列出服务器git库的所有分支。 
+git branch 分支名            		#创建一个分支 
+git branch –D 分支名        		#删除分支
+git diff 分支名 分支名       		#比较主分支和另一个分支的区别
+git-show-branch             		#查看当前分支的提交注释及信息） 
+git-show-branch -all        		#查看所有分支的提交注释及信息）
+git whatchanged             		#查看当前分支的操作记录 
+git config --global color.ui true   	#高亮
+git remote add origin URL     		#push地址
 
 
 回滚commit到xx
 git revert commit_id
-git push origin branch_name --force  # --force 更新远程仓库
+git push origin branch_name --force  	# --force 更新远程仓库
 
 如果刚才提交时忘了暂存某些修改，可以先补上暂存操作，然后再运行 --amend 提交：
 
