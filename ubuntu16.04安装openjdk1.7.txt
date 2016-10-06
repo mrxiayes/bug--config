@@ -5,3 +5,23 @@
 sudo add-apt-repository ppa:openjdk-r/ppa  
 sudo apt-get update   
 sudo apt-get install openjdk-7-jdk openjdk-7-jre
+
+-------------------------------------------------------
+
+如果不行就在终端输入
+
+sudo gedit /etc/apt/sources.list
+
+添加源
+
+deb http://ppa.launchpad.net/openjdk-r/ppa/ubuntu xenial main 
+
+deb-src http://ppa.launchpad.net/openjdk-r/ppa/ubuntu xenial main
+
+更新源
+
+sudo apt-get update
+
+安装
+
+sudo apt-get install openjdk-7-jdk openjdk-7-jre
